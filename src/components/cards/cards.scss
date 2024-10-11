@@ -1,0 +1,57 @@
+
+
+.card-stack {
+    position: relative;
+    
+
+    .carBox{
+        height: 100%;
+        width: 100%;
+       
+        overflow: hidden;
+    }
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .button-box{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.sliderTracker{
+        width: calc(100% + 2.813rem);
+        padding: 0 1.2rem; 
+        margin-left: -1.5rem;
+        // margin-right: -1.5rem;
+        padding-bottom: 1.2rem; 
+        overflow: hidden; 
+
+        slick-slider {
+            overflow: visible;
+        }
+
+        .slick-list {
+            overflow: visible;
+          }
+          //reference: https://stackoverflow.com/questions/47325172/slick-slider-box-shadows-are-cut-off
+}
+
+.card3-image{
+    cursor: pointer;
+    
+
+    &:active  {
+        border: 0.1rem solid #707072 !important;
+
+    }
+}
+
+.card3-image-active {
+    border: 0.2rem solid #707072 !important;
+}

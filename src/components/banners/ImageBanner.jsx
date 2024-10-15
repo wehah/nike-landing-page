@@ -5,7 +5,7 @@ import image3 from "../../assets/imgs/akram-huseyn-MTCpxU8b31I-unsplash.jpg";
 import "./banners.scss";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useGSAP} from "@gsap/react";
 
 export default function ImageBanner() {
   const [bannerIndex, setBannerIndex] = useState(0);
@@ -31,35 +31,22 @@ export default function ImageBanner() {
   useEffect(() => {
     const bannerLooper = setInterval(() => {
       !paused &&
-        setBannerIndex((index) => {
-          if (index === 0) {
-            return index + 1;
-          } else if (index === bannerInfo.length - 1) {
-            return 0;
-          } else {
-            return index + 1;
-          }
-        });
+        setBannerIndex((index) => (index + 1) % bannerInfo.length);
     }, 5000);
 
     return () => clearInterval(bannerLooper);
-  }, [bannerIndex, mouseEnter]);
+  }, [bannerIndex, mouseEnter, bannerInfo.length]);
 
   useGSAP(() => {
-    const tl1 = gsap.timeline();
-    tl1.from(imageRef.current, {
-      x: -50,
+    gsap.from([imageRef.current, infoRef.current], {
+      x: function (i) {
+        return i % 2 === 0 ? -50 : 50;
+      },
       duration: 1.5,
       ease: "power4.out",
+      stagger: 0.1,
     });
-
-    const tl2 = gsap.timeline();
-    tl2.from(infoRef.current, {
-      x: 50,
-      duration: 1.5,
-      ease: "power4.out",
-    });
-  }, [bannerIndex]);
+  }, {dependencies:[bannerIndex], revertOnUpdate:true});
 
   return (
     <Box sx={{ margin:3, marginY:4 }}>

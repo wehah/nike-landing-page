@@ -9,7 +9,6 @@ import image1 from "../../assets/imgs/ben-weber-r-krWscXjvQ-unsplash.jpg";
 import image2 from "../../assets/imgs/florian-kurrasch-HyivyCRdz14-unsplash.jpg";
 import image3 from "../../assets/imgs/renith-r-A9VpotrPr1k-unsplash.jpg";
 import image4 from "../../assets/imgs/frederik-rosar-q8D8IygmAzc-unsplash.jpg";
-import { Padding } from "@mui/icons-material";
 import "./carousel.scss";
 import { ClassNames } from "@emotion/react";
 

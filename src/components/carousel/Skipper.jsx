@@ -9,13 +9,7 @@ export default function Skipper(props) {
     isActive,
     onPrevCard,
     onNextCard,
-    isActiveR,
-    isActiveL,
   } = props;
-
-  //   const cardsTitle = "testing the skipper";
-  //   const isDisabled = false;
-  //   const isActive = true;
 
 
   const arrowButtonCss = {

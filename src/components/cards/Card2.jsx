@@ -4,7 +4,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Box, Stack } from "@mui/material";
 import "./cards.scss";
 
 export default function MediaCard({
@@ -17,8 +16,6 @@ export default function MediaCard({
 }) {
   return (
     <Card
-    // elevation="elevation"
-    
       sx={{
         backgroundColor: "primary.light",
         borderRadius: 0,

@@ -1,10 +1,8 @@
 import { useRef, useState } from "react";
-import { Box, Stack, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Slider from "react-slick";
 import Skipper from "../carousel/Skipper";
-import Card from "./Card";
-import Card2 from "./Card2";
-import Card3 from "./Card3"
+import MediaCard from "./CardMedia";
 import "./cards.scss";
 
 import image1 from "../../assets/imgs/george-catalina-1vHAP0oeUQE-unsplash.jpg";
@@ -30,11 +28,7 @@ import Cimage10 from "../../assets/imgs/patricia-palma-l_adRqoRjnY-unsplash.jpg"
 import Cimage11 from "../../assets/imgs/patricia-palma-OaAB-eYwmUU-unsplash.jpg";
 import Cimage12 from "../../assets/imgs/donny-jiang-VrfLmiwzXNM-unsplash.jpg";
 
-
-
-export default function CardsSlider({cardType, cardTitle}) {
- 
-
+export default function CardsSlider({ cardType }) {
   const isLargeScreen = useMediaQuery("(min-width:1200px)");
 
   const items = [
@@ -46,25 +40,78 @@ export default function CardsSlider({cardType, cardTitle}) {
   ];
 
   const items2 = [
-    { name: "Air max", category: "golfing", img: image6, price:"$175", detail:"men's shoes" },
-    { name: "Air Force 1", category: "running", img: image7, price:"$170", detail:"women's shoes" },
-    { name: "gore-tex", category: "foot ball", img: image8, price:"$215", detail:"sports shoes" },
-    { name: " Air Jordan", category: "Tennis", img: image9, price:"$150", detail:"running shoes" },
-    { name: " Air Jordan", category: "Tennis", img: image10, price:"$165", detail:"dress shoes" },
+    {
+      name: "Air max",
+      category: "golfing",
+      img: image6,
+      price: "$175",
+      detail: "men's shoes",
+    },
+    {
+      name: "Air Force 1",
+      category: "running",
+      img: image7,
+      price: "$170",
+      detail: "women's shoes",
+    },
+    {
+      name: "gore-tex",
+      category: "foot ball",
+      img: image8,
+      price: "$215",
+      detail: "sports shoes",
+    },
+    {
+      name: " Air Jordan",
+      category: "Tennis",
+      img: image9,
+      price: "$150",
+      detail: "running shoes",
+    },
+    {
+      name: " Air Jordan",
+      category: "Tennis",
+      img: image10,
+      price: "$165",
+      detail: "dress shoes",
+    },
   ];
 
   const clothing = [
-    {name:"Stylish Black", details:"casual clothing", slug:"casual-clothing", price:"$189", images:[Cimage1, Cimage2, Cimage3]},
-    {name:"Nike purple hoodie", details:"Gender Neutral Hoodie", slug:"Gender-Neutral-Hoodie",  price:"$199", images:[Cimage4, Cimage5, Cimage6]},
-    {name:"Nike Tape Hoodie & Pants", details:"casual clothing", slug:"casual-clothing",  price:"$215", images:[Cimage7, Cimage8, Cimage9]},
-    {name:"Nike black hooded jacket", details:"casual clothing", slug:"casual-clothing",  price:"$165", images:[Cimage10, Cimage11, Cimage12]}
-  ]
+    {
+      name: "Stylish Black",
+      details: "casual clothing",
+      slug: "casual-clothing",
+      price: "$189",
+      images: [Cimage1, Cimage2, Cimage3],
+    },
+    {
+      name: "Nike purple hoodie",
+      details: "Gender Neutral Hoodie",
+      slug: "Gender-Neutral-Hoodie",
+      price: "$199",
+      images: [Cimage4, Cimage5, Cimage6],
+    },
+    {
+      name: "Nike Tape Hoodie & Pants",
+      details: "casual clothing",
+      slug: "casual-clothing",
+      price: "$215",
+      images: [Cimage7, Cimage8, Cimage9],
+    },
+    {
+      name: "Nike black hooded jacket",
+      details: "casual clothing",
+      slug: "casual-clothing",
+      price: "$165",
+      images: [Cimage10, Cimage11, Cimage12],
+    },
+  ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = items.length;
 
   let sliderRef = useRef(null);
-
 
   const settings = {
     beforeChange: (current, next) => {
@@ -78,11 +125,15 @@ export default function CardsSlider({cardType, cardTitle}) {
     autoplay: false,
     autoplaySpeed: 3000,
     arrows: false,
-    Padding:0,
+    Padding: 0,
     cssEase: "cubic-bezier(0.12, 0.57, 0.63, 0.21)", //reference: https://joshcollinsworth.com/blog/easing-curves
   };
 
-
+  const cardTitles = {
+    mediaCard: "Shop Our Icons",
+    mediaContentCard: "Shop Our latest shoes",
+    largeMediaContentCard: "Shop  Sustainable Clothing",
+  };
 
   const prevCard = () => {
     if (currentSlide > 0) {
@@ -97,87 +148,62 @@ export default function CardsSlider({cardType, cardTitle}) {
     }
   };
 
-  // const carouselTitle = cardType === "card1" ? "Shop Our Icons" : "Shop Our latest shoes";
-
   return (
-    <Box sx={{  marginX: 2, overflow: "hidden", position: "relative" }}>
+    <Box sx={{ marginX: 2, overflow: "hidden", position: "relative" }}>
       <Skipper
         onPrevCard={prevCard}
         onNextCard={nextCard}
-        cardsTitle={cardTitle}
-        isActive={true} //useState
+        cardsTitle={cardTitles?.[cardType] || ""}
+        isActive={true}
       ></Skipper>
 
-    {cardType=== "card1" && 
-    <Slider
-        ref={sliderRef}
-        {...settings}
-        sx={{}}
-        className="sliderTracker"
-      >
-        {items.map((item, index) => (
-          <Card
-            buttonText={item.name}
-            img={item.img}
-            key={item.name}
-            name={item.name}
-            height={25}
-            heightxs={15}
-          />
-        ))}
-      </Slider>}
+      {cardType === "mediaCard" && (
+        <Slider ref={sliderRef} {...settings} sx={{}} className="sliderTracker">
+          {items.map((item, index) => (
+            <MediaCard
+              buttonText={item.name}
+              img={item.img}
+              key={item.name}
+              name={item.name}
+              height={25}
+              heightxs={15}
+            />
+          ))}
+        </Slider>
+      )}
 
-      {cardType=== "card2" &&
-      <Slider
-      ref={sliderRef}
-        {...settings}
-        sx={{}}
-        className="sliderTracker"
-        
-      >
-        {items2.map((item, index) => (
-          <Card2
-            buttonText={item.name}
-            img={item.img}
-            key={item.name}
-            name = {item.name}
-            price = {item.price}
-            details = {item.detail}
-            height={25}
-            heightxs={15}
-          />
+      {cardType === "mediaContentCard" && (
+        <Slider ref={sliderRef} {...settings} sx={{}} className="sliderTracker">
+          {items2.map((item) => (
+            <MediaCard
+              img={item.img}
+              name={item.name}
+              price={item.price}
+              details={item.detail}
+              height={25}
+              heightxs={15}
+              key={item.name}
+            />
+          ))}
+        </Slider>
+      )}
 
-          
-        ))}
-      </Slider>
-       }
-
-{cardType=== "card3" &&
-      <Slider
-      ref={sliderRef}
-        {...settings}
-        sx={{}}
-        className="sliderTracker"
-        
-      >
-        {clothing.map((item, index) => (
-          <Card3
-            index={index}
-            buttonText={item.name}
-            imgs={item.images}
-            key={item.name}
-            name = {item.name}
-            price = {item.price}
-            details = {item.details}
-            height={45}
-            heightxs={25}
-          />
-          
-          
-        ))}
-      </Slider>
-       }
-
+      {cardType === "largeMediaContentCard" && (
+        <Slider ref={sliderRef} {...settings} sx={{}} className="sliderTracker">
+          {clothing.map((item, index) => (
+            <MediaCard
+              index={index}
+              imageThumbnails={item.images}
+              key={item.name}
+              name={item.name}
+              price={item.price}
+              details={item.details}
+              height={45}
+              heightxs={25}
+            />
+          ))}
+        </Slider>
+      )}
     </Box>
   );
 }

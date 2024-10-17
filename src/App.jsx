@@ -17,10 +17,10 @@ function App() {
     <HeaderSlider />
     <Carousel />
     <CentreBanner />
-    <CardsSlider cardType="card1" cardTitle="Shop Our Icons" />
-    <CardsSlider cardType="card3" cardTitle="Shop  Sustainable Clothing" />
+    <CardsSlider cardType="mediaCard" />
+    <CardsSlider cardType="largeMediaContentCard" />
     <ImageBanner />
-    <CardsSlider cardType="card2" cardTitle="Shop Our latest shoes" />
+    <CardsSlider cardType="mediaContentCard" />
     <Footer />
     </>
   );

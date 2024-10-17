@@ -3,14 +3,12 @@ import { useMediaQuery } from "@mui/material";
 import Slider from "react-slick";
 import { useRef } from "react";
 import Skipper from "./Skipper";
-import Card from "../cards/Card";
-import { Link, Stack, Typography } from "@mui/material";
+import MediaCard from "../cards/CardMedia";
 import image1 from "../../assets/imgs/ben-weber-r-krWscXjvQ-unsplash.jpg";
 import image2 from "../../assets/imgs/florian-kurrasch-HyivyCRdz14-unsplash.jpg";
 import image3 from "../../assets/imgs/renith-r-A9VpotrPr1k-unsplash.jpg";
 import image4 from "../../assets/imgs/frederik-rosar-q8D8IygmAzc-unsplash.jpg";
 import "./carousel.scss";
-import { ClassNames } from "@emotion/react";
 
 export default function Carousel() {
   const isLargeScreen = useMediaQuery("(min-width:1200px)");
@@ -56,7 +54,7 @@ export default function Carousel() {
       />
       <Slider ref={sliderRef} {...settings} className="sliderr">
         {items.map((item, index) => (
-          <Card
+          <MediaCard
             buttonText={item.category}
             img={item.img}
             key={item.name}

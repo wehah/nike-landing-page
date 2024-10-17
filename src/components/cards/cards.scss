@@ -11,10 +11,12 @@
         overflow: hidden;
     }
 
-    img {
-        object-fit: cover;
+    img:not(.card3-image) {
         height: 100%;
         width: 100%;
+        object-fit: cover; 
+        overflow-clip-margin: content-box;
+        overflow: clip ;
     }
 
     .button-box{
@@ -42,13 +44,15 @@
           //reference: https://stackoverflow.com/questions/47325172/slick-slider-box-shadows-are-cut-off
 }
 
+
+
 .card3-image{
     cursor: pointer;
+   
     
 
     &:active  {
         border: 0.1rem solid #707072 !important;
-
     }
 }
 

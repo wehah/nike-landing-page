@@ -1,7 +1,7 @@
 # Nike Insprired Landing Page
 
  🟢 **Live demo:** [https://nike-inspired-landing-page.netlify.app/](https://nike-inspired-landing-page.netlify.app/)\
- 🟢 **Live demo:** [https://wehah.netlify.app/](https://wehah.netlify.app/) 
+ 🟢 **Design:** [PDF files](https://github.com/wehah/nike-landing-page/tree/main/design/) 
 
 This project involved creating a modern, responsive Nike inspired website using Material UI component library. The page showcases the brand’s product offerings and relevant information in a user-friendly layout.
 

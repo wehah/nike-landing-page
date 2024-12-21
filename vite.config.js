@@ -5,5 +5,5 @@ import svgr from 'vite-plugin-svgr';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr({ include: '**/*.svg' })],
-  base: '/nike-inspired-landing-page/',
+  base: "https://wehah.github.io/nike-landing-page",
 })

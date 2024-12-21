@@ -6,7 +6,7 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "./theme.js";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <StrictMode basename={import.meta.env.BASE_URL}>
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>

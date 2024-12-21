@@ -30,6 +30,8 @@ import Cimage12 from "../../assets/imgs/donny-jiang-VrfLmiwzXNM-unsplash.jpg";
 
 export default function CardsSlider({ cardType }) {
   const isLargeScreen = useMediaQuery("(min-width:1200px)");
+  const isTablet = useMediaQuery("(min-width: 499px) and (max-width: 1023px)");
+
 
   const items = [
     { name: "Air max", category: "golfing", img: image4 },
@@ -166,7 +168,7 @@ export default function CardsSlider({ cardType }) {
               key={item.name}
               name={item.name}
               height={25}
-              heightxs={15}
+              heightxs={30}
             />
           ))}
         </Slider>
@@ -181,7 +183,7 @@ export default function CardsSlider({ cardType }) {
               price={item.price}
               details={item.detail}
               height={25}
-              heightxs={15}
+              heightxs={25}
               key={item.name}
             />
           ))}
@@ -199,7 +201,7 @@ export default function CardsSlider({ cardType }) {
               price={item.price}
               details={item.details}
               height={45}
-              heightxs={25}
+              heightxs={isTablet ? 55 : 30}
             />
           ))}
         </Slider>

@@ -19,7 +19,7 @@ export default function HeaderSlider() {
   };
 
   return (
-    <Box position="static" elevation={0} sx={{ overflow: "hidden" }}>
+    <Box position="static" elevation={0} sx={{ overflow: "hidden" }} >
       <Slider {...settings}>
         {texts.map((text, index) => (
           <Stack

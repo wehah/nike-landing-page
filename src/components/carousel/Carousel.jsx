@@ -59,7 +59,7 @@ export default function Carousel() {
             img={item.img}
             key={item.name}
             height={35}
-            heightxs={35}
+            heightxs={50}
           />
         ))}
       </Slider>

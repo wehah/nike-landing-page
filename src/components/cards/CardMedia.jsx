@@ -34,7 +34,7 @@ export default function MediaCard({
       className="card-stack"
     >
       <CardMedia
-        sx={{ height: { md: `${height}rem`, xs: `${heightxs}rem` } }}
+        sx={{ height: {  xs: `${heightxs}rem`, lg: `${height}rem`,  } }}
         image= {imageThumbnails ? imageThumbnails[currentImg] : img}
         title={name}
       />

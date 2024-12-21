@@ -45,6 +45,7 @@ let theme = createTheme({
       fontSize: "1.1rem",
       fontWeight: 500,
     },
+
     body2: {
       fontFamily: "Inter",
       fontSize: "1.2rem",
